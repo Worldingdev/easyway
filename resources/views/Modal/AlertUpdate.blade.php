@@ -12,17 +12,17 @@
             }).showToast();
         });
 
-        const toast = swal.mixin({
-            toast : true,
-            position: 'top-end',
-            showConfrimButton : false,
-            timer : 3000
-        });
+        // const toast = swal.mixin({
+        //     toast : true,
+        //     position: 'top-end',
+        //     showConfrimButton : false,
+        //     timer : 3000
+        // });
 
-        toast({
-            type: 'success',
-            title: 'signed in successfully'
-        })
+        // toast({
+        //     type: 'success',
+        //     title: 'signed in successfully'
+        // })
     </script>
 @endif
 

@@ -18,7 +18,7 @@ class auth
     public function handle(Request $request, Closure $next): Response
     {
         if(!user_auth::check()){
-            return to_route('loginPage');
+            return to_route('loginPage')->with('error', 'Konekte ak kont ou avan!');
         }
         return $next($request);
     }

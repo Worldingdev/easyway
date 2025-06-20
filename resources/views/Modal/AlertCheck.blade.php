@@ -48,7 +48,7 @@
             document.addEventListener("DOMContentLoaded", function() {
             Swal.fire({
                 title: 'Ere',
-                text: "{{ session('error') }}",
+                html: `<p>{{ session('error') }}</p> <a class="btn btn-success" href="https://wa.me/{{session('admin')->tel}}"> <i class="bi bi-whatsapp"></i> Kontakte yon ajan</a>`,
                 icon: 'error',
                 confirmButtonText: 'OK'
             });

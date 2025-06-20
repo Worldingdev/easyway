@@ -12,7 +12,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Dachbod</h4>
+                        <h4 class="page-title">Lis itilizate</h4>
                     </div>
                     <div class="col-7 align-self-center">
                         <div class="d-flex align-items-center justify-content-end">
@@ -21,7 +21,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="#">Akey</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dachbod</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Jere itilizate</li>
                                 </ol>
                             </nav>
                         </div>
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div> -->
-                    <div class="row">
+                    {{-- <div class="row">
                         
                         <div class="col-lg-6">
                             <div class="card">
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <!-- ============================================================== -->
                 <!-- Email campaign chart -->
@@ -94,65 +94,58 @@
                     <div class="col-12">
                         <div class="card" style=" border-left-width: 16px; border-right-width: 16px;">
                             <div class="row card-body">
-                                <h4 class="col-sm-10 card-title">Lis koli yo</h4>
+                                <h4 class="col-sm-10 card-title">Lis itilizate yo</h4>
                                 <div class="col-sm-2">
-                                    <button class="btn btn-success text-white" data-bs-toggle="modal" data-bs-target="#save">Nouvo koli</button>
+                                    <a class="btn btn-success text-white" href="/register">Nouvo kont</a>
                                 </div>
                             </div>
                             
                             
                             <div class="table-responsive">
-                                <table id="tableColis" class="display table table-striped" style="width:100%">
+                                <table id="" class="display table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th class="border-top-0">Tracking number</th>
-                                            <th class="border-top-0">Nivo</th>
-                                            <th class="border-top-0">Dat li depoze</th>
-                                            <th class="border-top-0">Dat livrezon</th>
-                                            <th class="border-top-0">Reseve</th>
-                                            <th class="border-top-0">Pwa</th>
-                                            <th class="border-top-0">Fre</th>
+                                            <th class="border-top-0">Non itilizate</th>
+                                            <th class="border-top-0">Telofon</th>
+                                            <th class="border-top-0">imel</th>
+                                            <th class="border-top-0">Wol</th>
+                                            <th class="border-top-0">eta</th>
                                             <th class="border-top-0">Aksyon</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($allcolis as $colis)
+                                        @foreach($allusers as $user)
                                         <tr>
 
-                                            <td class="txt-oflo">{{$colis->trackingNumber}}</td>
-                                            <td><span class="label label-success label-rounded">{{strtoupper($colis->state)}}</span> </td>
-                                            <td class="txt-oflo">{{$colis->D_Deposite}}</td>
-                                            <td class="txt-oflo">{{$colis->D_Delivery}}</td>
-                                            <td class="txt-oflo">{{$colis->receiverName}}</td>
-                                            <td class="txt-oflo">{{($colis->weight)." Liv"}}</td>
-                                            <td><span class="font-medium">{{($colis->fee)." $"}}</span></td>
-                                            <td>
-                                                <div class="row">
-                                                <div class="col">
-                                                    <button @if ( $colis->state == 'Livre')
+                                            <td class="txt-oflo">{{$user->name}}</td>
+                                            <td><span class="label label-success label-rounded">{{ strtoupper($user->tel) ? strtoupper($user->tel) : 'N/A' }}</span> </td>
+                                            <td class="txt-oflo">{{$user->email}}</td>
+                                            <td class="txt-oflo">{{$user->type}}</td>
+                                            <td class="txt-oflo">{{$user->state}}
+                                                {{-- <button @if ( $user->state == 'Livre')
                                                     disabled
                                                     @endif class="btn btn-success text-white btn-edit"
-                                                            data-id="{{$colis->trackingNumber}}"
-                                                            data-weight="{{$colis->weight}}"
-                                                            data-tax="{{ $colis->tax }}"
-                                                            data-feelb="{{ ($colis->fee - $colis->tax)/$colis->weight }}"
-                                                            data-sn="{{$colis->senderName}}"
-                                                            data-rn="{{$colis->receiverName}}"
-                                                            data-dtdp="{{$colis->D_Deposite}}"
-                                                            data-dtda="{{$colis->D_Delivery}}"
-                                                            data-state="{{$colis->state}}"
+                                                            data-id="{{$user->email}}"
+                                                            data-type="{{$user->type}}"   
                                                     >
                                                         <i class="mdi mdi-border-color"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="col">
-                                                    <button class="btn btn-danger text-white btn-delete"
-                                                            data-idcolis="{{$colis->trackingNumber}}"
+                                                    </button> --}}
+                                            </td>
+                                            
+                                            <td>
+                                                
+                                                    <button class="btn btn-danger text-white btn-disabled"
+                                                            data-email="{{$user->email}}"
+                                                            data-state="{{$user->state}}"
                                                     >
-                                                        <i class="mdi mdi-delete"></i>
+                                                    @if ($user->state == 'aktive')
+                                                        <i class="mdi mdi-account-off"> Dezaktive</i>
+                                                    @else
+                                                        <i class="mdi mdi-account-check"> Aktive</i>
+                                                    @endif
                                                     </button>
-                                                </div>
-                                            </div>
+                                                
+                                            
                                             </td>
                                         </tr>
                                         @endforeach
@@ -163,7 +156,7 @@
                             @include('Modal.modalSave')
                             @include('Modal.AlertUpdate')
                             @include('Modal.modalEdit')
-                            @include('Modal.modalDelete')
+                            @include('Modal.modalDisabled')
                             
                         </div>
                     </div>

@@ -72,10 +72,13 @@
                             <div>
                                 <hr>
                             </div>
-                            <div class="card-body"> <small class="text-muted">Email address </small>
+                            <div class="card-body"> <small class="text-muted">imel </small>
                                 <h6> {{\Illuminate\Support\Facades\Auth::user()->email }}</h6> 
-                                <small class="text-muted pt-4 db">Phone</small>
-                                <h6>{{ \Illuminate\Support\Facades\Auth::user()->tel }}</h6> 
+                                <small class="text-muted pt-4 db">Tel</small>
+                                <h6>{{ \Illuminate\Support\Facades\Auth::user()->tel ? \Illuminate\Support\Facades\Auth::user()->tel : "N/A"}}</h6> 
+                                <div>
+                                    <hr>
+                                </div>
                                 <a href="/logout"><i class="mdi mdi-logout me-1 ms-1"></i>
                                     Dekonekte</a>
                             </div>
@@ -94,11 +97,11 @@
                                         <label class="col-md-12">Non konple</label>
                                         <div class="col-md-12">
                                             <input type="text" name="name" value="{{ \Illuminate\Support\Facades\Auth::user()->name }}"
-                                                class="form-control form-control-line">
+                                                class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="example-email" class="col-md-12">Email</label>
+                                        <label for="example-email" class="col-md-12">Imel</label>
                                         <div class="col-md-12">
                                             <input type="email" value="{{ \Illuminate\Support\Facades\Auth::user()->email }}"
                                                 class="form-control form-control-line"
@@ -108,7 +111,7 @@
                                     <div class="form-group">
                                         <label class="col-md-12">Nimero telefon</label>
                                         <div class="col-md-12">
-                                            <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->tel }}" name="tel" class="form-control form-control-line">
+                                            <input type="text" value="{{ \Illuminate\Support\Facades\Auth::user()->tel }}" placeholder="N/A" name="tel" class="form-control form-control-line">
                                         </div>
                                     </div>
                                     <div>
@@ -119,7 +122,6 @@
                                             Chanje kod sekre
                                         </a>  
                                         <input type="hidden" name="change_password_clicked" id="change_password_clicked" value="0">
-  
                                     </p>
                                     <div class="collapse" id="collapseExample">
                                         <div class="form-group">

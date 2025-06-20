@@ -12,6 +12,7 @@ class Colis extends Model
         'receiverName',
         'weight',
         'fee',
+        'tax',
         'state',
         'D_Deposite',
         'D_Delivery'

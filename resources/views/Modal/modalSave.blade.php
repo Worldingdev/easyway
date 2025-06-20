@@ -26,9 +26,12 @@
                                                     <input required type="number" name="fee_lb" class="form-control" placeholder="Antre fre koli a pa liv">
                                                 </div>
                                                 <div class="form-group">
+                                                    <label>Taks</label>
+                                                    <input  type="number" name="tax" class="form-control" placeholder="Antre taks koli a">
+                                                </div>
+                                                <div class="form-group">
                                                     <label>Nivo livrezon<span> *</span></label>
-                                                    <select required class="form-select shadow-none col-12" name="state" id="inlineFormCustomSelect">
-                                                        <option selected>Chwazi...</option>
+                                                    <select required class="form-select shadow-none col-12" name="state" id="nivo1">
                                                         <option value="Etazini">Etazini</option>
                                                         <option value="Disponib">Disponib</option>
                                                         <option value="Livre">Livre</option>
@@ -42,9 +45,9 @@
                                                     <label>Dat depozit<span> *</span></label>
                                                     <input required type="date" name="D_Deposite" class="form-control" placeholder="Antre dat koli a depoze">
                                                 </div>
-                                                <div class="form-group">
+                                                <div id="date_livraison_group1" class="form-group">
                                                     <label>Dat livrezon</label>
-                                                    <input  type="date" name="D_Delivery" class="form-control" placeholder="Antre dat koli a livre">
+                                                    <input id="D_delivery1"  type="date" name="D_Delivery" class="form-control" placeholder="Antre dat koli a livre">
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="reset" class="btn btn-outline-success " data-bs-dismiss="modal">Anile</button>

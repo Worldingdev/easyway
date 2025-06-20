@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('pages', function (Blueprint $table) {
-            //
+       
             Schema::table('pages', function (Blueprint $table) {
                 $table->string('videoLink')->nullable()->change();
             $table->string('text_1')->nullable()->change();
@@ -30,7 +29,6 @@ return new class extends Migration
             $table->string('email')->nullable()->change();
             });
             
-        });
     }
 
     /**

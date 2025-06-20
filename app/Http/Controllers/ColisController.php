@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Colis;
+use App\Models\User;
 use Carbon\Carbon;
 
 
@@ -46,17 +47,25 @@ class ColisController extends Controller
             'receiverName' => ['required','string'],
             'weight' => ['required','numeric'],
             'fee_lb' => ['required','numeric'],
+            'tax' => ['nullable','numeric'],
             'state' => ['required','string'],
             'D_Deposite' => ['required','date'],
             'D_Delivery' => ['nullable','date'],
         ]);
-    
+        
+        $colischeck = Colis::where('trackingNumber', $validated['trackingNumber'])->first();
+
+        if($colischeck){
+            return back()->with('error', 'Ere !!! nimoro Koli sa ekziste deja ');
+        }
+
         Colis::create([
                'trackingNumber' => $validated['trackingNumber'],
                'senderName' => $validated['senderName'],
                'receiverName' => $validated['receiverName'], 
                'weight' => $validated['weight'],
-               'fee' => $validated['fee_lb'] * $validated['weight'],
+               'tax' => $validated['tax'],
+               'fee' => ($validated['fee_lb'] * $validated['weight']) + $validated['tax'],
                'state' => $validated['state'], 
                'D_Deposite' => $validated['D_Deposite'], 
                'D_Delivery' => $validated['D_Delivery'],  
@@ -72,6 +81,7 @@ class ColisController extends Controller
             'receiverName' => ['required', 'string'],
             'weight' => ['required', 'numeric'],
             'fee_lb' => ['required','numeric'],
+            'tax' => ['nullable','numeric'],
             'state' => ['required', 'string'],
             'D_Deposite' => ['required', 'date'],
             'D_Delivery' => ['nullable', 'date'],
@@ -87,7 +97,8 @@ class ColisController extends Controller
                 'senderName' => $validated['senderName'],
                'receiverName' => $validated['receiverName'], 
                'weight' => $validated['weight'],
-               'fee' => $validated['fee_lb'] * $validated['weight'],
+               'tax' => $validated['tax'],
+               'fee' => ($validated['fee_lb'] * $validated['weight']) + $validated['tax'],
                'state' => $validated['state'], 
                'D_Deposite' => $validated['D_Deposite'], 
                'D_Delivery' => $validated['D_Delivery'],      
@@ -120,10 +131,11 @@ class ColisController extends Controller
     
         // Rechercher le colis dans la base de données
         $colischeck = Colis::where('trackingNumber', $validated['idColis'])->first();
+        $admin = User::where('type',"admin")->first();
     
         // Vérifier si le colis existe
         if (!$colischeck) {
-            return redirect()->back()->with('error', 'Koli sa pa anrejistre ! verifye nimero koli a');
+            return redirect()->back()->with('error', 'Koli sa pa anrejistre ! tanpri verifye nimero koli a osinon ')->with('admin', $admin);
         }
     
         // Retourner la vue avec le colis et un message de succès

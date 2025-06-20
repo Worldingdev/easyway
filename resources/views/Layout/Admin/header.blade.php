@@ -163,19 +163,30 @@
                                 <span class="hide-menu">Jere paj akey</span>
                             </a>
                         </li>
+                        @if (\Illuminate\Support\Facades\Auth::user()->type == 'admin')
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profil"
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/manageUser"
                                 aria-expanded="false">
                                 <i class="mdi mdi-account-settings-variant"></i>
-                                <span class="hide-menu">Pwofil</span>
+                                <span class="hide-menu">Jere itilizate</span>
                             </a>
-                        </li>
+                        </li> 
+                        @endif
+                        
                         
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
                                 aria-expanded="false">
                                 <i class="mdi mdi-home"></i>
                                 <span class="hide-menu">Paj akey</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/profil"
+                                aria-expanded="false">
+                                <i class="mdi mdi-account-settings-variant"></i>
+                                <span class="hide-menu">Pwofil</span>
                             </a>
                         </li>
                         

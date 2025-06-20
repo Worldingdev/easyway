@@ -19,6 +19,10 @@ Route::group([
 
     Route::get('/pageSet',[PageController::class, 'pageSet']);
 
+    Route::get('/manageUser',[UserController::class, 'liste']); 
+
+    Route::post('/switchStateAccount', [UserController::class, 'switchStateAccount']);
+
     Route::post('/editContainPage', [PageController::class, 'editContainPage']);
 
     Route::post('/editProfil', [UserController::class, 'updateProfil']);
@@ -35,6 +39,10 @@ Route::group([
 
     Route::post('/deleteColis', [ColisController::class, 'delete']);
 
+    Route::post('/registration', [ConnectionController::class, 'registration']);
+
+    Route::get('/register', [ConnectionController::class, 'registerPage'])->name('registerPage');
+
 });
 
 Route::get('/connection', [ConnectionController::class, 'loginPage'])->name('loginPage');
@@ -43,9 +51,7 @@ Route::post('/connection', [ConnectionController::class, 'connection']);
 
 Route::get('/logout', [ConnectionController::class, 'deconnection']);
 
-Route::post('/registration', [ConnectionController::class, 'registration']);
 
-Route::get('/register', [ConnectionController::class, 'registerPage']);
 
 Route::post('/CheckColis',[ColisController::class, 'check']);
 

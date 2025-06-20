@@ -27,6 +27,10 @@
                                                 <input required type="number" name="fee_lb" id="fee_lb" class="form-control" placeholder="Antre fre koli a pa liv">
                                             </div>
                                             <div class="form-group">
+                                                <label>Taks</label>
+                                                <input  type="number" name="tax" id="tax" class="form-control" placeholder="Antre taks koli a">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Nivo livrezon</label>
                                                 <select class="form-select shadow-none col-12" id="nivo" name="state">
                                                     <!-- <option selected>Chwazi...</option> -->
@@ -43,7 +47,7 @@
                                                 <label>Dat depozit<span> *</span></label>
                                                 <input required type="date" id="D_deposite" name="D_Deposite" class="form-control" placeholder="Antre dat koli a depoze">
                                             </div>
-                                            <div class="form-group">
+                                            <div id="date_livraison_group" class="form-group">
                                                 <label>Dat livrezon<span> *</span></label>
                                                 <input  id="D_delivery" type="date" name="D_Delivery" class="form-control" placeholder="Antre dat koli a livre">
                                             </div>

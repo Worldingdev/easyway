@@ -5,9 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use app\Models\User;
 
 class UserController extends Controller
 {
+    public function liste(){
+        $allusers = User::all();
+        return view('user',['allusers' => $allusers]);
+    }
+
     public function profil()
     {
         return view('profil'); // Correction du chemin de la vue
@@ -41,8 +47,32 @@ class UserController extends Controller
         return back()->withErrors(['image' => 'Image la pa ka telechaje.']);
     }
 
+    public function switchStateAccount(Request $request){
+        // Valider les infos de base (toujours)
+        $validated = $request->validate([
+            'email' => 'required|string|max:255',
+        ]);
+        $userX = User::where('email', $validated['email'])->first();
+
+        if($userX->type == 'admin'){
+            return back()->with('error', 'kont administrate a paka dezaktive ');
+        }
+        
+        if($userX->state == 'aktive'){
+            $userX->state = 'dezaktive';
+            $userX->save();
+            return back()->with('success', 'kont '.$userX->state);
+        }else{
+            $userX->state = 'aktive';
+            $userX->save();
+            return back()->with('success', 'kont '.$userX->state);
+        }
+
+        
+    }
+
     public function updateUser(Request $request)
-{
+    {
     $user = Auth::user();
 
     // Valider les infos de base (toujours)
@@ -52,7 +82,7 @@ class UserController extends Controller
     ]);
 
     $user->name = $request->name;
-    $user->tel = $request->tel;
+    $user->tel = "+".preg_replace('/\D/', '',$request->tel);
 
     $user->save();
 

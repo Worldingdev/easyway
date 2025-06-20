@@ -42,6 +42,85 @@
                 <div class="col">
                     <!-- Column -->
                     <div class="row">
+
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <center class="mt-4"> <img id="img" src="{{ $page->flyer_1_d ? asset('storage/' . $page->flyer_1_d ) : asset('admin/assets/images/no-image-icon-6.png') }}" class="rounded" width="150" />
+
+                                            <form action="/changeFlyer" method="POST" enctype="multipart/form-data">
+                                                @csrf
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label for="file-upload" role="button"><i class="mdi mdi-camera"> Chanje premye imaj dyaporama</i></label>
+                                                            <input type="file" data-target="#img" id="file-upload" class="d-none" name="image" required>
+                                                            <input type="text" value="flyer_1_d" name="flyer" hidden >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-12">
+                                                            <button type="submit" class="btn btn-success text-white">Anrejistre </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <center class="mt-4"> <img id="img1" src="{{ $page->flyer_2_d ? asset('storage/' . $page->flyer_2_d ) : asset('admin/assets/images/no-image-icon-6.png') }}" class="rounded" width="150" />
+    
+                                            <form action="/changeFlyer" method="POST" enctype="multipart/form-data">
+
+                                                @csrf
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="file-upload-1" role="button"><i class="mdi mdi-camera"> Chanje dezyem imaj dyaporama</i></label>
+                                                        <input type="file" data-target="#img1" id="file-upload-1" class="d-none" name="image" required>
+                                                        <input type="text" value="flyer_2_d" name="flyer" hidden >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <button type="submit" class="btn btn-success text-white">Anrejistre </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <center class="mt-4"> <img id="img2" src="{{ $page->flyer_3_d ? asset('storage/' . $page->flyer_3_d ) : asset('admin/assets/images/no-image-icon-6.png') }}" width="150" />
+    
+                                            <form action="/changeFlyer" method="POST" enctype="multipart/form-data">
+
+                                                @csrf
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label for="file-upload-2" role="button"><i class="mdi mdi-camera"> Chanje twazyem imaj dyaporama</i></label>
+                                                        <input type="file" data-target="#img2" id="file-upload-2" class="d-none" name="image" required>
+                                                        <input type="text" value="flyer_3_d" name="flyer" hidden >
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">
+                                                        <button type="submit" class="btn btn-success text-white">Anrejistre </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
                         
                             <div class="col-lg-4">
                                 <div class="card">

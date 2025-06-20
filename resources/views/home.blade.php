@@ -4,9 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Easyway</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>Envoyez vos colis avec Easyway - Livraison rapide</title>
+  <meta name="description" content="Service d'expédition rapide depuis USA vers les Haiti. Suivi en ligne, délais fiables, prix compétitifs.">
+  <meta name="keywords" content="envoyer un colis livraison express Haïti USA">
 
   <!-- Favicons -->
   <link href="{{asset('assets/img/favicon.png') }}" rel="icon">
@@ -56,10 +56,47 @@
     </div>
   </header>
 
-  <main class="main">
+  <main id="hero" class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section light-background">
+ 
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ $page->flyer_1_d ? asset('storage/' . $page->flyer_1_d ) : asset('assets/img/bannerEasyway.jpg') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ $page->flyer_2_d ? asset('storage/' . $page->flyer_2_d ) : asset('assets/img/bannerEasyway4.jpg') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{ $page->flyer_3_d ? asset('storage/' . $page->flyer_3_d ) :  asset('assets/img/bannerEasyway3.jpg') }}" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <section  class="hero section light-background">
 
       <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
         <div class="row gy-5">
@@ -182,12 +219,59 @@
 
         <div class="row gy-5 justify-content-between">
 
-          <div class="col-xl-5" data-aos="zoom-out" data-aos-delay="100">
-            <img src="{{ asset('assets/assets/img//template/eStartup/features.svg') }}" class="img-fluid" alt="">
-          </div>
+          <div class="container section-title" data-aos="fade-up">
+            <div><span>Kek</span> <span class="description-title">Boutik anliy</span></div>
+          </div><!-- End Section Title -->
 
           <div class="col-xl-5" data-aos="zoom-out" data-aos-delay="100">
             <img src="{{ asset('assets/img/warehouse.png') }}" class="img-fluid" alt="">
+          </div>
+          <div class="col-xl-6 d-flex">
+            <div class="row align-self-center gy-4">
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.fashionnova.com/">FashionNova</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.amazon.com/">Amazon</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.ebay.com/">Ebay</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.shein.com/">Shein</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.boohooman.com/us/">BoohooMAN</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="feature-box d-flex align-items-center">
+                  <i class="bi bi-handbag"></i>
+                  <h3><a href="https://www.temu.com/">TEMU</a></h3>
+                </div>
+              </div><!-- End Feature Item -->
+  
+            </div>
           </div>
 
         </div>
@@ -195,6 +279,7 @@
       </div>
 
     </section><!-- /Features Section -->
+    
 
     @include('Modal.AlertCheck')
 

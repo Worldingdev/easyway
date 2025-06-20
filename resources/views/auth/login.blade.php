@@ -27,7 +27,7 @@
                 <div class="signin-content">
                     <div class="signin-image">
                         <figure><img src="{{ asset('assets/img/delivery.png') }}" alt="sing up image"></figure>
-                        <a href="/register" class="signup-image-link">Kreye yon kont</a>
+                        
                     </div>
 
                     <div class="signin-form">

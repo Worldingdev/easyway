@@ -30,6 +30,7 @@
             $('#trackingNumber').val($(this).data('id'));
             $('#weight').val($(this).data('weight'));
             $('#fee_lb').val($(this).data('feelb'));
+            $('#tax').val($(this).data('tax'));
             $('#senderName').val($(this).data('sn'));
             $('#receiverName').val($(this).data('rn'));
             $('#D_deposite').val($(this).data('dtdp'));
@@ -47,6 +48,58 @@
             $('#delete').modal('show');
         });
     });
+
+    $(document).ready(function() {
+        $('.btn-disabled').on('click', function() {
+            $('#email').val($(this).data('email'));
+            $('#state').val($(this).data('state'));
+            // Ouvrir le modal (facultatif, car Bootstrap le fait avec data-bs-toggle)
+            $('#disabled').modal('show');
+        });
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const etat = document.getElementById('nivo');
+        const dateGroup = document.getElementById('date_livraison_group');
+        const dateInput = document.getElementById('D_delivery');
+
+        function updateDateField() {
+            if (etat.value === 'Livre') {
+                dateGroup.style.display = 'block';
+                dateInput.setAttribute('required', 'required');
+            } else {
+                dateGroup.style.display = 'none';
+                dateInput.removeAttribute('required');
+                dateInput.value = ''; // vider si désactivé
+            }
+        }
+
+        etat.addEventListener('change', updateDateField);
+        updateDateField(); // au cas où une valeur serait déjà sélectionnée
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const etat = document.getElementById('nivo1');
+        const dateGroup = document.getElementById('date_livraison_group1');
+        const dateInput = document.getElementById('D_delivery1');
+
+        function updateDateField() {
+            if (etat.value === 'Livre') {
+                dateGroup.style.display = 'block';
+                dateInput.setAttribute('required', 'required');
+            } else {
+                dateGroup.style.display = 'none';
+                dateInput.removeAttribute('required');
+                dateInput.value = ''; // vider si désactivé
+            }
+        }
+
+        etat.addEventListener('change', updateDateField);
+        updateDateField(); // au cas où une valeur serait déjà sélectionnée
+    });
+
+
     </script>
   
     
@@ -68,6 +121,8 @@
     <script src="{{asset('admin/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
     <script src="{{asset('admin/dist/js/pages/dashboards/dashboard1.js') }}"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
